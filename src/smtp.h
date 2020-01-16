@@ -328,7 +328,7 @@ smtp_status_code_clear(struct smtp *const smtp);
  * work correctly for clearing the SMTP_STATUS_PARAM and SMTP_STATUS_FILE
  * errors. Do not use this to clear any other error codes.
  *
- * @deprecated Use @ref smtp_status_code_clear instead.
+ * deprecated Use @ref smtp_status_code_clear instead.
  *
  * @param[in] smtp            SMTP client context.
  * @param[in] new_status_code See @ref smtp_status_code.
