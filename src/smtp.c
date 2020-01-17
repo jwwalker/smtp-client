@@ -1491,12 +1491,19 @@ smtp_parse_cmd_line(char *const line,
     cmd->code = (enum smtp_result_code)ulcode;
   }
 
-  if(line[3] == '-'){
+  if (line[3] == '-') {
     cmd->more = 1;
   }
   else{
     cmd->more = 0;
   }
+  
+  // JWWalker hack, I saw "250 HELP" before "235 Authentication succeeded"
+  if ( (cmd->code == SMTP_DONE) && (0 == strcmp( cmd->text, "HELP" )) )
+  {
+  	cmd->more = 1;
+  }
+  
   return cmd->code;
 }
 
