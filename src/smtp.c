@@ -391,7 +391,6 @@ smtp_str_getdelimfd_read(struct str_getdelimfd *const gdfd,
     return -1;
   }
 
-  bytes_read = 0;
   if(smtp->tls_on){
 #ifdef SMTP_OPENSSL
     do{
